@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Dhir's Dental Care Multispeciality",
+  "description": "Premium, modern, and animated healthcare website for Dr. Dhir's Dental Care Multispeciality in Kot Kapura, Punjab, featuring an interactive AI Dental Assistant and Patient Portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

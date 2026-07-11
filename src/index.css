@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Powder blue colors */
+  --color-powder-50: #f4f8fc;
+  --color-powder-100: #e5f0fa;
+  --color-powder-200: #cee2f4;
+  --color-powder-300: #abcdea;
+  --color-powder-400: #7daedc;
+  --color-powder-500: #5991ca;
+  --color-powder-600: #4275b2;
+  --color-powder-700: #355d93;
+  --color-powder-800: #2f4f7a;
+  --color-powder-900: #2a4467;
+  --color-powder-950: #1b2a41;
+
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fcfcfc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4e2f0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5991ca;
+}
+
+/* Base style refinements */
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom premium utilities */
+.oversized-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.card-rounded {
+  border-radius: 2rem;
+}
+
+.section-rounded {
+  border-radius: 3rem;
+}
+
+.shadow-premium {
+  box-shadow: 
+    0 10px 25px -5px rgba(27, 42, 65, 0.04), 
+    0 8px 16px -6px rgba(27, 42, 65, 0.02),
+    0 1px 2px rgba(27, 42, 65, 0.01),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.shadow-premium-hover {
+  box-shadow: 
+    0 25px 45px -12px rgba(27, 42, 65, 0.16),
+    0 16px 28px -8px rgba(27, 42, 65, 0.10),
+    0 4px 10px -2px rgba(27, 42, 65, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.95) inset;
+}
+
