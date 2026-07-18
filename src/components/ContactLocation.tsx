@@ -243,7 +243,7 @@ I would like to get assistance / book an appointment.`;
               <span className="font-mono text-powder-700 text-[10px] font-bold uppercase tracking-widest block">Clinic Location</span>
               <h3 className="font-display font-semibold text-lg text-powder-950 leading-tight">Dhir Complex, Kot Kapura</h3>
               <p className="text-xs text-gray-500 leading-relaxed font-sans">
-                Dhir Complex, Near Petrol Pump, Faridkot Road, Kot Kapura, Punjab, India.
+                Dhir Complex, Near Petrol Pump, Faridkot Road, Kot Kapura, Punjab – 151 204, India.
               </p>
             </div>
 

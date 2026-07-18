@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3000;
+const PORT = parseInt(process.env.PORT || "4000");
 
 app.use(express.json({ limit: "10mb" }));
 
@@ -137,12 +137,15 @@ app.post("/api/chat", async (req, res) => {
   try {
     const ai = getGeminiClient();
 
-    const systemInstruction = `You are the "Dhir AI Dental Assistant", an elegant, compassionate, and professional digital assistant for Dr. Dhir’s Dental Care Multispeciality.
+    const systemInstruction = `You are the "Dhir AI Dental Assistant", an elegant, compassionate, and professional digital assistant for Dr. Dhir’s Dental Care Multispeciality Hospital.
 The clinic details are:
-- Name: Dr. Dhir’s Dental Care Multispeciality
+- Name: Dr. Dhir’s Dental Care Multispeciality Hospital
+- Tagline: Fully-digital dental clinic, providing complete dental care and treatments for all. Smiles Guaranteed.
 - Address: Dhir Complex, Near Petrol Pump, Faridkot Road, Kot Kapura, Punjab, India
 - Contact/Phone: 070094 88220
-- Led by: Dr. Kuldip Dhir, MDS (RCT Specialist, Ex Deputy Director, Ex Deputy Medical Commissioner, Ex SMO).
+- Instagram: @drdhirdentalcare
+- Led by: Dr. Kuldip Dhir, MDS (RCT Specialist, Ex Deputy Director, Ex Deputy Medical Commissioner, Ex SMO, 35+ years experience)
+- Awards: FDILB February 2024 Edition — Faridkot District Rank No. 1; AIC Medal Ceremony recognition.
 
 Guidelines for your replies:
 1. Provide extremely polite, hygienic, calm, and medically trustworthy dental care awareness.
@@ -167,7 +170,7 @@ Guidelines for your replies:
     });
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.0-flash",
       contents: formattedContents,
       config: {
         systemInstruction,
@@ -231,7 +234,7 @@ The response JSON must follow this TypeScript interface structure:
 }`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.0-flash",
       contents: [
         {
           inlineData: {

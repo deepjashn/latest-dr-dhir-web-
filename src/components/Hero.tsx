@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Calendar, Phone, Sparkles, MapPin, Clock, Star, Award, Zap, ShieldCheck, Stethoscope, Activity, Heart, HelpCircle, Info } from "lucide-react";
+import { Calendar, Phone, Sparkles, MapPin, Clock, Star, Award, Zap, ShieldCheck, Stethoscope, Activity, Heart, HelpCircle, Info, Trophy } from "lucide-react";
 
 interface HeroProps {
   onNavigate: (sectionId: string) => void;
@@ -29,14 +29,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-powder-200 text-powder-900 text-[10px] font-bold uppercase tracking-wider shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-powder-600" />
-              <span>Trusted Multispeciality Dental Care</span>
+              <span>Fully-Digital Multispeciality Dental Hospital</span>
             </motion.div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl oversized-heading text-powder-950 font-bold leading-tight">
-              Dr. Dhir’s Dental Care Multispeciality
+              Dr. Dhir’s Dental Care Multispeciality Hospital
             </h1>
             <p className="text-base sm:text-lg font-display font-semibold text-powder-800 tracking-tight leading-snug">
-              Senior Specialist-Led Dental Care in Kot Kapura
+              Smiles Guaranteed — Faridkot Road, Kot Kapura
             </p>
 
             <motion.p
@@ -85,7 +85,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             {/* Micro Stats inside Hero */}
             <div className="grid grid-cols-3 gap-4 pt-8 border-t border-powder-200/50">
               <div className="text-left space-y-1">
-                <div className="text-lg sm:text-xl font-display font-bold text-powder-950">25+</div>
+                <div className="text-lg sm:text-xl font-display font-bold text-powder-950">35+</div>
                 <div className="text-[10px] text-gray-500 font-medium uppercase tracking-wider leading-tight">Years Exp.</div>
               </div>
               <div className="text-left space-y-1">
@@ -93,8 +93,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <div className="text-[10px] text-gray-500 font-medium uppercase tracking-wider leading-tight">Smiles</div>
               </div>
               <div className="text-left space-y-1">
-                <div className="text-lg sm:text-xl font-display font-bold text-powder-950">MDS</div>
-                <div className="text-[10px] text-gray-500 font-medium uppercase tracking-wider leading-tight">Specialists</div>
+                <div className="text-lg sm:text-xl font-display font-bold text-powder-950">#1</div>
+                <div className="text-[10px] text-gray-500 font-medium uppercase tracking-wider leading-tight">Faridkot Rank</div>
               </div>
             </div>
           </div>
@@ -400,9 +400,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         {[
           { label: "RCT Specialist", desc: "MDS Specialization", icon: Stethoscope },
           { label: "MDS Qualified", desc: "Highest Dental Credentials", icon: Award },
-          { label: "Senior Experienced Doctor", desc: "35+ Years of Excellence", icon: Clock },
-          { label: "Multispeciality Dental", desc: "All Treatments Under One Roof", icon: Activity },
-          { label: "Trusted Care in Kot Kapura", desc: "Punjab's Preferred Clinic", icon: ShieldCheck },
+          { label: "35+ Years Experience", desc: "Senior Specialist Since 1990s", icon: Clock },
+          { label: "Faridkot Rank #1", desc: "FDILB 2024 Edition", icon: Star },
+          { label: "Fully Digital Clinic", desc: "Advanced Digital Dentistry", icon: ShieldCheck },
         ].map((badge, idx) => (
           <motion.div
             key={idx}
@@ -427,13 +427,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         <div className="max-w-3xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-powder-800">
             <span className="w-1.5 h-1.5 rounded-full bg-powder-500 animate-pulse" />
-            <span>Welcome to Dr. Dhir's Dental Care Multispeciality</span>
+            <span>Welcome to Dr. Dhir's Dental Care Multispeciality Hospital</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 tracking-tight">
-            Advanced Dental Care Built on Experience, Ethics, & Trust
+            Kot Kapura's Fully-Digital Dental Hospital — Smiles Guaranteed
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed">
-            At Dr. Dhir's Dental Care Multispeciality, we believe that an exceptional smile starts with clinical expertise, rigorous hygiene, and complete treatment transparency. Led by <strong>Dr. Kuldip Dhir, MDS</strong>, former Deputy Director and Ex-SMO with over 35 years of medical service, we deliver patient-centric general and advanced dentistry. From painless root canals to comprehensive cosmetic enhancements, our clinic offers Kot Kapura's highest level of dental care.
+            At Dr. Dhir's Dental Care Multispeciality Hospital, we run Kot Kapura's most advanced fully-digital dental clinic — complete dental care and treatments for all, with every smile guaranteed. Led by <strong>Dr. Kuldip Dhir, MDS</strong>, former Deputy Director and Ex-SMO with over 35 years of clinical excellence, we are proud recipients of the <strong>FDILB 2024 Faridkot Rank #1</strong> and the AIC Medal Ceremony recognition. From painless single-visit root canals to complete cosmetic smile design, we deliver Punjab's highest standard of dental care.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-gray-100">

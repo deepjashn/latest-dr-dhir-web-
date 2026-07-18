@@ -3,21 +3,25 @@ import { Service, Doctor, TrustBadge, Symptom } from "./types";
 export const DOCTOR_PROFILE: Doctor = {
   name: "Dr. Kuldip Dhir, MDS",
   qualifications: "MDS — RCT Specialist",
-  role: "Senior Dental Specialist & Clinic Director",
+  role: "Senior Dental Specialist & Hospital Director",
   credentials: [
     "Ex Deputy Director, Health Department",
     "Ex Deputy Medical Commissioner",
     "Ex Senior Medical Officer (SMO)",
-    "RCT Specialist (MDS)"
+    "RCT Specialist (MDS)",
+    "FDILB 2024 Faridkot Rank #1 — Awarded Dental Professional",
+    "AIC Medal Ceremony — Recognised Healthcare Excellence"
   ],
   experienceHighlights: [
     "Over 35+ years of clinical and administrative healthcare excellence",
     "Former highest-ranking state medical administrator (Deputy Director)",
+    "Kot Kapura’s only fully-digital multispeciality dental hospital",
+    "FDILB February 2024 Edition: Faridkot District Rank No. 1",
     "Leading pioneer in advanced Single-Visit Root Canal Treatments (RCT)",
     "Renowned for ethical practice, gentle care, and patient-first diagnostics"
   ],
-  aboutText: "Dr. Dhir’s Dental Care Multispeciality is committed to providing reliable, advanced, and comfortable dental care with modern techniques, ethical treatment, and a compassionate approach. Led by Dr. Kuldip Dhir, MDS, our clinic focuses on patient comfort, proper diagnosis, and long-term oral health.",
-  missionStatement: "To provide trusted, ethical, and advanced dental care for patients of all ages in a comfortable, sterile, and highly hygienic environment."
+  aboutText: "Dr. Dhir’s Dental Care Multispeciality Hospital is Kot Kapura’s fully-digital dental clinic, providing complete dental care and treatments for all — Smiles Guaranteed. Led by Dr. Kuldip Dhir, MDS, former Deputy Director and FDILB 2024 Faridkot Rank #1 recipient, our hospital combines 35+ years of clinical mastery with state-of-the-art digital dentistry.",
+  missionStatement: "To provide trusted, ethical, and fully-digital dental care for patients of all ages — because every patient deserves a guaranteed smile."
 };
 
 export const TRUST_BADGES: TrustBadge[] = [
@@ -35,25 +39,37 @@ export const TRUST_BADGES: TrustBadge[] = [
   },
   {
     id: "badge-3",
-    title: "Senior Experienced",
-    subtitle: "35+ Years of Excellence",
+    title: "35+ Years Excellence",
+    subtitle: "Senior Specialist Since 1990s",
     iconName: "CalendarRange",
   },
   {
     id: "badge-4",
-    title: "Multispeciality Dental",
-    subtitle: "All Treatments Under One Roof",
+    title: "Fully Digital Clinic",
+    subtitle: "Advanced Digital Dentistry",
     iconName: "Activity",
   },
   {
     id: "badge-5",
-    title: "Trusted Kot Kapura",
-    subtitle: "Punjab's Preferred Clinic",
+    title: "Faridkot Rank #1",
+    subtitle: "FDILB 2024 Award",
     iconName: "ShieldCheck",
   }
 ];
 
 export const SERVICES: Service[] = [
+  {
+    id: "implants",
+    name: "Dental Implants",
+    description: "Permanent, natural-looking tooth replacement using titanium implants fused to the jawbone — the gold standard for missing teeth.",
+    iconName: "Zap",
+    details: {
+      meaning: "A dental implant is a small titanium screw surgically placed into the jawbone to act as an artificial tooth root. A custom crown is then fixed on top, creating a permanent, fully functional replacement tooth.",
+      whenNeeded: "When one or more teeth are missing due to decay, trauma, or extraction, and you want a permanent, stable solution that looks and functions exactly like a natural tooth.",
+      procedure: "Dr. Dhir evaluates jawbone density with digital X-rays. The titanium implant is placed under local anaesthesia. After osseointegration (3–4 months), a precision-milled Zirconia crown is permanently fixed on the implant.",
+      importance: "Implants prevent bone loss, maintain facial structure, restore full chewing ability, and last a lifetime with proper care — unlike dentures or bridges."
+    }
+  },
   {
     id: "rct",
     name: "Root Canal Treatment (RCT)",
