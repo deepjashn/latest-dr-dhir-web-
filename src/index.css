@@ -25,6 +25,29 @@
   --color-teal-600: #0d9488;
   --color-teal-700: #0f766e;
   --color-teal-800: #115e59;
+
+  /* ===== Premium clinical brand system (redesign) ===== */
+  /* Deep navy + clinical blue. brand-950 = #102A43, brand-500 = #2878B5 */
+  --color-brand-50: #EAF4FA;
+  --color-brand-100: #d7e9f5;
+  --color-brand-200: #b9d6ec;
+  --color-brand-300: #8fbbdf;
+  --color-brand-400: #5b9bcd;
+  --color-brand-500: #2878B5;
+  --color-brand-600: #226aa0;
+  --color-brand-700: #1e5885;
+  --color-brand-800: #1a476b;
+  --color-brand-900: #163a58;
+  --color-brand-950: #102A43;
+
+  /* Semantic single-tone tokens */
+  --color-ink: #102A43;       /* headings */
+  --color-body: #425466;      /* body text */
+  --color-hairline: #D9E4EC;  /* muted borders */
+  --color-mist: #FAFBFC;      /* warm off-white */
+  --color-wa: #1FAF62;        /* WhatsApp green */
+  --color-wa-dark: #17994F;
+  --color-accent: #258A8A;    /* premium teal accent */
 }
 
 html {

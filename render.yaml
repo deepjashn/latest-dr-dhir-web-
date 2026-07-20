@@ -1,0 +1,17 @@
+# Render.com deployment blueprint (Infrastructure-as-Code).
+# Deploy: push to GitHub → render.com → New → Blueprint → pick this repo.
+# Then set the GEMINI_API_KEY secret in the Render dashboard (never commit it).
+services:
+  - type: web
+    name: dr-dhir-dental
+    runtime: node
+    plan: free
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false # set this in the Render dashboard

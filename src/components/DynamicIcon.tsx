@@ -10,6 +10,7 @@ export const DynamicIcon: React.FC<DynamicIconProps> = ({ name, className = "w-6
   // Safe mapping of our custom iconName descriptors to official Lucide component names
   const iconMapping: { [key: string]: keyof typeof Icons } = {
     // Services
+    Zap: "Zap", // Dental Implants
     FlameKindling: "Flame", // Flame for RCT (Root Canal)
     ClipboardCheck: "ClipboardCheck", // Checkup
     Sparkles: "Sparkles", // Cleaning & Polishing
