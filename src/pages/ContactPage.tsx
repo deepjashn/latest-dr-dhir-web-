@@ -3,6 +3,7 @@ import { MapPin, Clock, Phone, Navigation, Check, Send } from "lucide-react";
 import { Placeholder, Eyebrow, Button } from "../components/ui/Bits";
 import { CLINIC, waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
+import clinicExterior from "../assets/images/clinic-exterior.jpg";
 
 export const ContactPage: React.FC = () => {
   const { open } = useAppointment();
@@ -99,11 +100,14 @@ export const ContactPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Map */}
+          {/* Clinic photo + map */}
           <div className="lg:sticky lg:top-24">
+            <div className="rounded-2xl overflow-hidden shadow-sm mb-4">
+              <img src={clinicExterior} alt="Dr. Dhir's Dental Care Multispeciality Hospital building, Dhir Complex, Faridkot Road, Kotkapura" className="w-full h-auto" loading="lazy" />
+            </div>
             <Placeholder
               label="Google Map embed<br/>Dhir Complex, Faridkot Road, Kotkapura"
-              className="aspect-[4/3] min-h-[420px]"
+              className="aspect-[16/10]"
               gradient="linear-gradient(135deg,#DCE9F2,#C0D8EA)"
               tag="Interactive map to be embedded"
             />

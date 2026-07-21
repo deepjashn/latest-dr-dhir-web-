@@ -11,7 +11,7 @@ export const CLINIC = {
   whatsappRaw: "917009488220",
   whatsappBase: "https://wa.me/917009488220",
   instagram: "https://www.instagram.com/drdhirdentalcare/",
-  hours: "Mon–Sat: 9:30 AM – 7:30 PM · Sun: On call",
+  hours: "Mon–Sat: 9:30 AM–2 PM & 4:30–7 PM · Sun: On appointment",
   addressLine: "Dhir Complex, Near Petrol Pump, Faridkot Road",
   city: "Kotkapura",
   state: "Punjab",

@@ -4,14 +4,15 @@ import { Camera } from "lucide-react";
 import { Placeholder, SectionHead, Button } from "../components/ui/Bits";
 import { waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
+import clinicExterior from "../assets/images/clinic-exterior.jpg";
 
-const TILES = [
+const TILES: { label: string; grad?: string; img?: string; alt?: string }[] = [
+  { label: "Clinic building — Dhir Complex, Faridkot Road", img: clinicExterior, alt: "Dr. Dhir's Dental Care Multispeciality Hospital building exterior, Dhir Complex, Faridkot Road, Kotkapura" },
   { label: "Reception area photo", grad: "linear-gradient(135deg,#DCEAF3,#C4DAEA)" },
   { label: "Consultation room photo", grad: "linear-gradient(135deg,#DEEAE4,#C6DDD2)" },
   { label: "Treatment operatory photo", grad: "linear-gradient(135deg,#E4E8F1,#CBD4E4)" },
   { label: "Digital imaging / equipment photo", grad: "linear-gradient(135deg,#EAE4F1,#D5C9E6)" },
   { label: "Sterilisation area photo", grad: "linear-gradient(135deg,#E4F0F1,#C9E4E7)" },
-  { label: "Clinic entrance photo", grad: "linear-gradient(135deg,#F1EAE0,#E4D6C2)" },
 ];
 
 const fadeUp = {
@@ -41,7 +42,14 @@ export const GalleryPage: React.FC = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {TILES.map((t) => (
               <motion.div key={t.label} {...fadeUp}>
-                <Placeholder label={`<span style='display:inline-flex;flex-direction:column;align-items:center;gap:8px'>${t.label}</span>`} className="aspect-[4/3]" gradient={t.grad} tag="Photo to be added" />
+                {t.img ? (
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
+                    <img src={t.img} alt={t.alt} className="w-full h-full object-cover" loading="lazy" />
+                    <span className="absolute bottom-3 left-3 bg-brand-950/70 text-white text-[11px] px-2.5 py-1 rounded-full font-semibold">{t.label}</span>
+                  </div>
+                ) : (
+                  <Placeholder label={t.label} className="aspect-[4/3]" gradient={t.grad} tag="Photo to be added" />
+                )}
               </motion.div>
             ))}
           </div>
