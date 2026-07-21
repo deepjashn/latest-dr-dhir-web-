@@ -19,6 +19,9 @@ export const CLINIC = {
   landmark: "Near Petrol Pump, Faridkot Road",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Dhir+Complex+Near+Petrol+Pump+Faridkot+Road+Kotkapura+Punjab",
+  // No-API-key embed (Google Maps "output=embed" mode)
+  mapEmbedUrl:
+    "https://maps.google.com/maps?q=Dhir%20Complex%20Near%20Petrol%20Pump%20Faridkot%20Road%20Kotkapura%20Punjab%20151204&t=&z=15&ie=UTF8&iwloc=&output=embed",
 };
 
 // Prebuilt WhatsApp deep-link with an optional message.

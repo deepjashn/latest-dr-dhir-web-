@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MapPin, Clock, Phone, Navigation, Check, Send } from "lucide-react";
-import { Placeholder, Eyebrow, Button } from "../components/ui/Bits";
+import { Eyebrow, Button } from "../components/ui/Bits";
 import { CLINIC, waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
 import clinicExterior from "../assets/images/clinic-exterior.jpg";
@@ -105,12 +105,15 @@ export const ContactPage: React.FC = () => {
             <div className="rounded-2xl overflow-hidden shadow-sm mb-4">
               <img src={clinicExterior} alt="Dr. Dhir's Dental Care Multispeciality Hospital building, Dhir Complex, Faridkot Road, Kotkapura" className="w-full h-auto" loading="lazy" />
             </div>
-            <Placeholder
-              label="Google Map embed<br/>Dhir Complex, Faridkot Road, Kotkapura"
-              className="aspect-[16/10]"
-              gradient="linear-gradient(135deg,#DCE9F2,#C0D8EA)"
-              tag="Interactive map to be embedded"
-            />
+            <div className="rounded-2xl overflow-hidden shadow-sm border border-hairline">
+              <iframe
+                title="Map to Dr. Dhir's Dental Care Multispeciality Hospital, Kotkapura"
+                src={CLINIC.mapEmbedUrl}
+                className="w-full aspect-[16/10] block"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
             <a href={CLINIC.mapsUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("directions_click", "contact_map")} className="mt-4 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-brand-950 text-white font-semibold hover:bg-brand-900 transition-colors">
               <Navigation className="w-4 h-4" /> Open in Google Maps
             </a>
