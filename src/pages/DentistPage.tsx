@@ -6,11 +6,12 @@ import { DynamicIcon } from "../components/DynamicIcon";
 import { Button, Eyebrow, SectionHead } from "../components/ui/Bits";
 import { waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
+import { usePageMeta } from "../hooks/usePageMeta";
 import drDhirPortrait from "../assets/images/dr-kuldip-dhir.png";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 16 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { y: 16 },
+  whileInView: { y: 0 },
   viewport: { once: true, amount: 0.15 },
   transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const },
 };
@@ -18,6 +19,10 @@ const fadeUp = {
 export const DentistPage: React.FC = () => {
   const { open } = useAppointment();
   const d = DOCTOR_PROFILE;
+  usePageMeta(
+    "Dr. Kuldip Dhir, MDS — Meet Your Dentist | Dr. Dhir's Dental Care",
+    "Meet Dr. Kuldip Dhir, MDS (Endodontics) — experienced dental specialist offering modern, digitally supported dental care in Kotkapura, Punjab."
+  );
 
   return (
     <>

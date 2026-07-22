@@ -4,13 +4,14 @@ import { motion } from "motion/react";
 import { ArrowRight, Phone } from "lucide-react";
 import { SERVICES } from "../data";
 import { DynamicIcon } from "../components/DynamicIcon";
-import { Button, SectionHead } from "../components/ui/Bits";
+import { Button, Eyebrow } from "../components/ui/Bits";
 import { CLINIC, waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 16 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { y: 16 },
+  whileInView: { y: 0 },
   viewport: { once: true, amount: 0.1 },
   transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const },
 };
@@ -29,17 +30,25 @@ const GRADS = [
 
 export const TreatmentsPage: React.FC = () => {
   const { open } = useAppointment();
+  usePageMeta(
+    "Dental Treatments in Kotkapura | Dr. Dhir's Dental Care",
+    "Root canal, dental implants, crowns, smile design, gum care and pediatric dentistry in Kotkapura — explained clearly by an experienced MDS specialist."
+  );
 
   return (
     <>
       {/* Page hero */}
       <section className="bg-mist border-b border-hairline">
         <div className="max-w-7xl mx-auto px-6 py-16 lg:py-20">
-          <SectionHead
-            eyebrow="Dental Care for Every Stage of Life"
-            title="Explore Our Dental Treatments"
-            intro="From pain relief and root canals to implants, smile design and preventive care — every treatment is explained clearly, so you always understand your options before you decide."
-          />
+          <div className="max-w-2xl mb-10">
+            <Eyebrow>Dental Care for Every Stage of Life</Eyebrow>
+            <h1 className="font-display font-extrabold tracking-tight text-[clamp(2rem,3.6vw,3rem)] leading-[1.08] mt-4 mb-4 text-balance text-ink">
+              Dental Treatments in Kotkapura
+            </h1>
+            <p className="text-[17px] lg:text-[18px] leading-relaxed text-body">
+              From pain relief and root canals to implants, smile design and preventive care — every treatment is explained clearly, so you always understand your options before you decide.
+            </p>
+          </div>
           <div className="flex flex-wrap gap-3.5">
             <Button onClick={() => open("treatments_hero")}>Book a Consultation</Button>
             <Button variant="wa" href={waLink()} onClick={() => trackEvent("wa_click", "treatments_hero")}>WhatsApp the Clinic</Button>

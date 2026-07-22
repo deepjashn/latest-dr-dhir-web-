@@ -39,7 +39,7 @@ export const Hero: React.FC<{ onPickConcern: (c: string) => void }> = ({ onPickC
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 pt-14 lg:pt-20">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
           {/* LEFT */}
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div initial={{ y: 20 }} animate={{ y: 0 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
             <span className="inline-flex items-center gap-2 bg-white border border-turq-100 px-4 py-2 rounded-full text-[13px] font-bold text-turq-700 shadow-sm mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-turq-500" /> Advanced Multispeciality Dental Care in Kotkapura
             </span>
@@ -72,7 +72,7 @@ export const Hero: React.FC<{ onPickConcern: (c: string) => void }> = ({ onPickC
           </motion.div>
 
           {/* RIGHT — real clinic environment (NOT the portrait) */}
-          <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="relative">
+          <motion.div initial={{ scale: 0.98 }} animate={{ scale: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="relative">
             <div className="rounded-[32px] overflow-hidden shadow-[0_40px_80px_-30px_rgba(6,59,59,0.45)] aspect-[4/5]">
               <img src={clinicExterior} alt="Dr. Dhir's Dental Care Multispeciality Hospital — the clinic on Faridkot Road, Kotkapura" className="w-full h-full object-cover" width={1066} height={1600} fetchPriority="high" />
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Check, Play, Quote, ArrowRight } from "lucide-react";
+import { Check, Quote, ArrowRight } from "lucide-react";
 import { DOCTOR_PROFILE } from "../../data";
 import { SectionHead, Eyebrow, fadeUp, TButton, WaGlyph } from "./ui";
 import { ConcernAssessment } from "./ConcernAssessment";
@@ -29,10 +29,6 @@ export const MeetDoctor: React.FC = () => {
           <div className="relative rounded-[32px] overflow-hidden shadow-[0_40px_80px_-30px_rgba(6,59,59,0.45)] aspect-[4/5]">
             <img src={drDhirPortrait} alt={`${DOCTOR_PROFILE.name} — ${DOCTOR_PROFILE.role}`} className="w-full h-full object-cover object-top" width={1131} height={1414} loading="lazy" />
           </div>
-          <button onClick={() => trackEvent("doctor_video", "meet")} className="absolute bottom-6 left-6 flex items-center gap-3 bg-white/95 backdrop-blur rounded-2xl pl-2 pr-5 py-2 shadow-xl hover:shadow-2xl transition-shadow">
-            <span className="w-11 h-11 rounded-full bg-turq-500 text-white grid place-items-center"><Play className="w-5 h-5 fill-current" /></span>
-            <span className="text-left"><b className="block text-[13px] text-teal-deep leading-tight">Watch Introduction</b><span className="text-[11px] text-muted2">Video to be added</span></span>
-          </button>
         </motion.div>
 
         {/* content */}

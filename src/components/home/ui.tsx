@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// Shared entrance animation for the redesigned homepage.
+// Shared entrance animation. Translate-only (never opacity:0) so content is
+// ALWAYS visible by default — animation enhances, it never controls visibility.
 export const fadeUp = {
-  initial: { opacity: 0, y: 22 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.15 },
-  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+  initial: { y: 18 },
+  whileInView: { y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
 };
 
 export const Eyebrow: React.FC<{ children: React.ReactNode; invert?: boolean; className?: string }> = ({ children, invert, className = "" }) => (

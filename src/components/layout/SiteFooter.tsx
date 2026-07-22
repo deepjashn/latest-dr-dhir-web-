@@ -13,8 +13,7 @@ const TREATMENT_LINKS = [
 ];
 const QUICK_LINKS = [
   { label: "Meet Dr. Dhir", to: "/dentist" },
-  { label: "Smile Gallery", to: "/gallery" },
-  { label: "Patient Reviews", to: "/reviews" },
+  { label: "Smart Dental Check", to: "/#smart-check" },
   { label: "All Treatments", to: "/treatments" },
   { label: "Contact", to: "/contact" },
 ];
@@ -69,9 +68,9 @@ export const SiteFooter: React.FC = () => (
         <div className="flex flex-col sm:flex-row justify-between gap-3.5 mt-4 text-sm">
           <span>© {new Date().getFullYear()} {CLINIC.name}. All rights reserved.</span>
           <div className="flex gap-4.5 flex-wrap">
-            <Link to="/contact" className="hover:text-white">Privacy Policy</Link>
-            <Link to="/contact" className="hover:text-white">Terms</Link>
-            <Link to="/contact" className="hover:text-white">Medical Disclaimer</Link>
+            <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white">Terms</Link>
+            <Link to="/disclaimer" className="hover:text-white">Medical Disclaimer</Link>
           </div>
         </div>
       </div>

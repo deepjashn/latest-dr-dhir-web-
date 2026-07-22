@@ -7,6 +7,7 @@ import { DynamicIcon } from "../components/DynamicIcon";
 import { Button } from "../components/ui/Bits";
 import { CLINIC, waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
+import { usePageMeta } from "../hooks/usePageMeta";
 import { StubPage } from "./StubPage";
 
 const DETAIL_BLOCKS = [
@@ -21,6 +22,10 @@ export const TreatmentDetailPage: React.FC = () => {
   const { open } = useAppointment();
   const service = SERVICES.find((s) => s.id === slug);
   const related = SERVICES.filter((s) => s.id !== slug).slice(0, 3);
+  usePageMeta(
+    service ? `${service.name} in Kotkapura | Dr. Dhir's Dental Care` : "Treatment | Dr. Dhir's Dental Care",
+    service?.description
+  );
 
   if (!service) {
     return <StubPage title="Treatment not found" eyebrow="Treatments" />;
@@ -53,8 +58,8 @@ export const TreatmentDetailPage: React.FC = () => {
             {DETAIL_BLOCKS.map((b) => (
               <motion.div
                 key={b.key}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 14 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4 }}
                 className="bg-white border border-hairline rounded-2xl p-6 sm:p-7"

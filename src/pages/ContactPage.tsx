@@ -3,10 +3,15 @@ import { MapPin, Clock, Phone, Navigation, Check, Send } from "lucide-react";
 import { Eyebrow, Button } from "../components/ui/Bits";
 import { CLINIC, waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
+import { usePageMeta } from "../hooks/usePageMeta";
 import clinicExterior from "../assets/images/clinic-exterior.jpg";
 
 export const ContactPage: React.FC = () => {
   const { open } = useAppointment();
+  usePageMeta(
+    "Dental Clinic Location & Appointment in Kotkapura | Dr. Dhir's Dental Care",
+    "Visit Dr. Dhir's Dental Care Multispeciality Hospital on Faridkot Road, Kotkapura. Address, hours, phone, WhatsApp and directions — book your appointment."
+  );
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [errors, setErrors] = useState<{ name?: boolean; phone?: boolean; message?: boolean }>({});
   const [sent, setSent] = useState(false);
