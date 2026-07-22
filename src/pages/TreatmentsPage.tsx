@@ -15,16 +15,16 @@ const fadeUp = {
   transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const },
 };
 
-// Soft gradient per card so the grid doesn't read as identical tiles.
+// Soft teal-family gradient per card so the grid doesn't read as identical tiles.
 const GRADS = [
-  "linear-gradient(135deg,#E3F0EC,#CBE4DA)",
-  "linear-gradient(135deg,#E4EEF6,#CFE0EE)",
-  "linear-gradient(135deg,#EDEAF5,#DCD5EC)",
-  "linear-gradient(135deg,#E4F1F4,#C9E5EA)",
-  "linear-gradient(135deg,#EAEEF3,#D2DCE8)",
-  "linear-gradient(135deg,#F5EEE4,#ECDDCB)",
-  "linear-gradient(135deg,#E5F0E6,#CDE3CF)",
-  "linear-gradient(135deg,#F5E6E6,#ECD0D0)",
+  "linear-gradient(135deg,#DFF7F4,#a5e6df)",
+  "linear-gradient(135deg,#e7f2f0,#c9e6df)",
+  "linear-gradient(135deg,#e0f2ef,#b9e2da)",
+  "linear-gradient(135deg,#eaf3f1,#cfe6e0)",
+  "linear-gradient(135deg,#dff3f0,#aee0d6)",
+  "linear-gradient(135deg,#eef4f2,#d3e8e2)",
+  "linear-gradient(135deg,#e3f1ee,#c2e4db)",
+  "linear-gradient(135deg,#e8f4f2,#c7e7e0)",
 ];
 
 export const TreatmentsPage: React.FC = () => {

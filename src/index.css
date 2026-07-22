@@ -6,18 +6,18 @@
   --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'Fira Code', monospace;
 
-  /* Powder blue colors */
-  --color-powder-50: #f4f8fc;
-  --color-powder-100: #e5f0fa;
-  --color-powder-200: #cee2f4;
-  --color-powder-300: #abcdea;
-  --color-powder-400: #7daedc;
-  --color-powder-500: #5991ca;
-  --color-powder-600: #4275b2;
-  --color-powder-700: #355d93;
-  --color-powder-800: #2f4f7a;
-  --color-powder-900: #2a4467;
-  --color-powder-950: #1b2a41;
+  /* Powder scale — aliased to the teal system (keeps the floating Chatbot on-brand) */
+  --color-powder-50: #DFF7F4;
+  --color-powder-100: #c9f0eb;
+  --color-powder-200: #a5e6df;
+  --color-powder-300: #6fd6cd;
+  --color-powder-400: #33c6bd;
+  --color-powder-500: #12B8B0;
+  --color-powder-600: #0f9c95;
+  --color-powder-700: #0c7d77;
+  --color-powder-800: #0a625e;
+  --color-powder-900: #084f4c;
+  --color-powder-950: #063B3B;
 
   --color-teal-50: #f0fdfa;
   --color-teal-100: #ccfbf1;
@@ -26,28 +26,30 @@
   --color-teal-700: #0f766e;
   --color-teal-800: #115e59;
 
-  /* ===== Premium clinical brand system (redesign) ===== */
-  /* Deep navy + clinical blue. brand-950 = #102A43, brand-500 = #2878B5 */
-  --color-brand-50: #EAF4FA;
-  --color-brand-100: #d7e9f5;
-  --color-brand-200: #b9d6ec;
-  --color-brand-300: #8fbbdf;
-  --color-brand-400: #5b9bcd;
-  --color-brand-500: #2878B5;
-  --color-brand-600: #226aa0;
-  --color-brand-700: #1e5885;
-  --color-brand-800: #1a476b;
-  --color-brand-900: #163a58;
-  --color-brand-950: #102A43;
+  /* ===== brand-x is ALIASED to the Pearl teal system for site-wide consistency =====
+     Inner pages and shared chrome use the brand and semantic tokens; the homepage uses
+     the teal tokens below. Both now resolve to the same teal palette so the whole site
+     shares one colour pattern. (Names kept unchanged to avoid touching every component.) */
+  --color-brand-50: #DFF7F4;
+  --color-brand-100: #c9f0eb;
+  --color-brand-200: #a5e6df;
+  --color-brand-300: #6fd6cd;
+  --color-brand-400: #33c6bd;
+  --color-brand-500: #12B8B0;  /* turquoise — links / icons */
+  --color-brand-600: #0f9c95;
+  --color-brand-700: #0c7d77;
+  --color-brand-800: #0a625e;
+  --color-brand-900: #084f4c;
+  --color-brand-950: #063B3B;  /* deep teal — headings / buttons / dark sections */
 
-  /* Semantic single-tone tokens */
-  --color-ink: #102A43;       /* headings */
-  --color-body: #425466;      /* body text */
-  --color-hairline: #D9E4EC;  /* muted borders */
-  --color-mist: #FAFBFC;      /* warm off-white */
-  --color-wa: #1FAF62;        /* WhatsApp green */
+  /* Semantic single-tone tokens (teal-aligned) */
+  --color-ink: #102A32;       /* headings */
+  --color-body: #60747A;      /* body text */
+  --color-hairline: #D9E7E4;  /* muted teal-tinted borders */
+  --color-mist: #F8FAF8;      /* warm off-white */
+  --color-wa: #1FAF62;        /* WhatsApp green (WhatsApp actions only) */
   --color-wa-dark: #17994F;
-  --color-accent: #258A8A;    /* premium teal accent */
+  --color-accent: #0f9c95;    /* premium teal accent */
 
   /* ===== Pearl premium teal system (homepage redesign) ===== */
   --color-teal-deep: #063B3B;   /* primary deep teal */

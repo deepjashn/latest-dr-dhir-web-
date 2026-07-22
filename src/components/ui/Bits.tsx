@@ -7,7 +7,7 @@ export const Placeholder: React.FC<{
   className?: string;
   gradient?: string;
   tag?: string;
-}> = ({ label, className = "", gradient = "linear-gradient(135deg,#E3EDF5,#D3E2EE)", tag }) => (
+}> = ({ label, className = "", gradient = "linear-gradient(135deg,#E6F2EF,#CFE7E0)", tag }) => (
   <div
     className={`relative grid place-items-center text-center overflow-hidden rounded-2xl text-[13px] font-semibold text-brand-950/50 p-5 ${className}`}
     style={{ background: gradient }}

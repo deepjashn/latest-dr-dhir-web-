@@ -27,7 +27,7 @@ export const SiteHeader: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[74px] flex items-center gap-5">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 shrink-0">
-          <span className="w-11 h-11 rounded-xl grid place-items-center text-white shrink-0" style={{ background: "linear-gradient(140deg,#102A43,#2878B5)" }}>
+          <span className="w-11 h-11 rounded-xl grid place-items-center text-white shrink-0" style={{ background: "linear-gradient(140deg,#063B3B,#12B8B0)" }}>
             <ToothMark />
           </span>
           <span className="leading-tight">

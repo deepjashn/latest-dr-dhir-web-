@@ -8,11 +8,11 @@ import clinicExterior from "../assets/images/clinic-exterior.jpg";
 
 const TILES: { label: string; grad?: string; img?: string; alt?: string }[] = [
   { label: "Clinic building — Dhir Complex, Faridkot Road", img: clinicExterior, alt: "Dr. Dhir's Dental Care Multispeciality Hospital building exterior, Dhir Complex, Faridkot Road, Kotkapura" },
-  { label: "Reception area photo", grad: "linear-gradient(135deg,#DCEAF3,#C4DAEA)" },
-  { label: "Consultation room photo", grad: "linear-gradient(135deg,#DEEAE4,#C6DDD2)" },
-  { label: "Treatment operatory photo", grad: "linear-gradient(135deg,#E4E8F1,#CBD4E4)" },
-  { label: "Digital imaging / equipment photo", grad: "linear-gradient(135deg,#EAE4F1,#D5C9E6)" },
-  { label: "Sterilisation area photo", grad: "linear-gradient(135deg,#E4F0F1,#C9E4E7)" },
+  { label: "Reception area photo", grad: "linear-gradient(135deg,#DFF7F4,#a5e6df)" },
+  { label: "Consultation room photo", grad: "linear-gradient(135deg,#e7f2f0,#c9e6df)" },
+  { label: "Treatment operatory photo", grad: "linear-gradient(135deg,#e0f2ef,#b9e2da)" },
+  { label: "Digital imaging / equipment photo", grad: "linear-gradient(135deg,#eaf3f1,#cfe6e0)" },
+  { label: "Sterilisation area photo", grad: "linear-gradient(135deg,#e3f1ee,#c2e4db)" },
 ];
 
 const fadeUp = {
