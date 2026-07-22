@@ -47,8 +47,8 @@ export const SiteHeader: React.FC = () => {
 
         {/* Right actions */}
         <div className="flex items-center gap-2.5 ml-auto">
-          <a href={CLINIC.whatsappBase} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("wa_click", "header")} aria-label="WhatsApp the clinic" className="w-11 h-11 rounded-xl bg-wa text-white grid place-items-center hover:bg-wa-dark transition-colors">
-            <WaMark />
+          <a href={CLINIC.whatsappBase} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("wa_click", "header")} aria-label="WhatsApp the clinic" className="inline-flex items-center gap-2 h-11 px-3.5 rounded-xl bg-wa text-white font-semibold text-[15px] hover:bg-wa-dark transition-colors">
+            <WaMark /> <span className="hidden xl:inline">WhatsApp</span>
           </a>
           <button onClick={() => open("header")} className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-950 text-white font-semibold text-[15px] hover:bg-brand-900 transition-colors">
             Book Appointment

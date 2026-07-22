@@ -48,6 +48,23 @@
   --color-wa: #1FAF62;        /* WhatsApp green */
   --color-wa-dark: #17994F;
   --color-accent: #258A8A;    /* premium teal accent */
+
+  /* ===== Pearl premium teal system (homepage redesign) ===== */
+  --color-teal-deep: #063B3B;   /* primary deep teal */
+  --color-navy-deep: #071F2B;   /* secondary dark navy */
+  --color-turq-50: #DFF7F4;     /* soft aqua */
+  --color-turq-100: #c9f0eb;
+  --color-turq-200: #a5e6df;
+  --color-turq-300: #6fd6cd;
+  --color-turq-400: #33c6bd;
+  --color-turq-500: #12B8B0;    /* premium turquoise */
+  --color-turq-600: #0f9c95;
+  --color-turq-700: #0c7d77;
+  --color-turq-800: #0a625e;
+  --color-cream: #F8FAF8;       /* warm off-white */
+  --color-neutral-soft: #EEF2F1;/* soft neutral */
+  --color-ink2: #102A32;        /* main text (teal system) */
+  --color-muted2: #60747A;      /* muted text (teal system) */
 }
 
 html {

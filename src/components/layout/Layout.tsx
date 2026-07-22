@@ -6,12 +6,22 @@ import { SiteFooter } from "./SiteFooter";
 import { MobileActionBar } from "./MobileActionBar";
 import { Chatbot } from "../Chatbot";
 
-// Scrolls to top on every route change.
+// Scrolls to top on route change, or to the hash target when present.
 const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) {
+      // wait a tick for the target section to render, then scroll to it
+      const id = hash.replace("#", "");
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        else window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+      });
+      return;
+    }
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 };
 

@@ -34,8 +34,9 @@ export function waLink(message?: string): string {
 // Primary navigation used by the header + mobile drawer.
 export const NAV: { label: string; to: string }[] = [
   { label: "Treatments", to: "/treatments" },
-  { label: "Meet the Dentist", to: "/dentist" },
+  { label: "Meet Dr. Dhir", to: "/dentist" },
   { label: "Smile Gallery", to: "/gallery" },
+  { label: "Smart Dental Check", to: "/#smart-check" },
   { label: "Patient Reviews", to: "/reviews" },
   { label: "Contact", to: "/contact" },
 ];
