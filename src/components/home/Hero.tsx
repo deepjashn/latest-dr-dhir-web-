@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, ShieldCheck, ScanLine, Stethoscope, HeartHandshake, Award, Check } from "lucide-react";
+import { ArrowRight, ShieldCheck, ScanLine, Stethoscope, HeartHandshake, Check } from "lucide-react";
 import { TButton, WaGlyph } from "./ui";
 import { waLink, trackEvent } from "../../content/site";
 import { useAppointment } from "../layout/AppointmentModal";
@@ -75,10 +75,6 @@ export const Hero: React.FC<{ onPickConcern: (c: string) => void }> = ({ onPickC
           <motion.div initial={{ scale: 0.98 }} animate={{ scale: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="relative">
             <div className="rounded-[32px] overflow-hidden shadow-[0_40px_80px_-30px_rgba(6,59,59,0.45)] aspect-[4/5]">
               <img src={clinicExterior} alt="Dr. Dhir's Dental Care Multispeciality Hospital — the clinic on Faridkot Road, Kotkapura" className="w-full h-full object-cover" width={1066} height={1600} fetchPriority="high" />
-            </div>
-            <div className="absolute top-5 -left-3 sm:-left-5 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3">
-              <span className="w-10 h-10 rounded-xl bg-turq-50 text-turq-600 grid place-items-center"><Award className="w-5 h-5" /></span>
-              <div><b className="block text-[14px] text-teal-deep leading-tight">MDS Dental Specialist</b><span className="text-[11px] text-muted2">Dr. Kuldip Dhir</span></div>
             </div>
           </motion.div>
         </div>
