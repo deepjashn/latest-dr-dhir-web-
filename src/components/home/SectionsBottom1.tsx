@@ -39,9 +39,6 @@ export const TechSafety: React.FC = () => (
               <p className="text-sm text-muted2">{t.body}</p>
             </motion.div>
           ))}
-          <div className="sm:col-span-2">
-            <TButton variant="ghost" href="#walkthrough" onClick={() => trackEvent("sterilisation_view", "tech")}>See Our Sterilisation Process <ArrowRight className="w-4 h-4" /></TButton>
-          </div>
         </div>
       </div>
     </div>

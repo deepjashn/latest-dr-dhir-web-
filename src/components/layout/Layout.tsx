@@ -11,12 +11,12 @@ const ScrollToTop: React.FC = () => {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     if (hash) {
-      // wait a tick for the target section to render, then scroll to it
+      // wait a tick for the target section to render, then scroll to it.
+      // If the target no longer exists (stale hash), stay put — do NOT jump to top.
       const id = hash.replace("#", "");
       requestAnimationFrame(() => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: "smooth" });
-        else window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
       });
       return;
     }

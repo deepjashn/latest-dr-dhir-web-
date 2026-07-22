@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowRight, ShieldCheck, ScanLine, Stethoscope, HeartHandshake } from "lucide-react";
 import { TButton, WaGlyph } from "./ui";
@@ -39,9 +40,9 @@ export const Hero: React.FC = () => {
               <TButton variant="wa" href={waLink()} onClick={() => trackEvent("wa_click", "hero")}><WaGlyph /> WhatsApp the Clinic</TButton>
             </div>
             <div className="flex items-center gap-5 flex-wrap">
-              <a href="/treatments" onClick={() => trackEvent("treatment_visit", "hero_link")} className="inline-flex items-center gap-1.5 font-bold text-teal-deep hover:text-turq-600">
+              <Link to="/treatments" onClick={() => trackEvent("treatment_visit", "hero_link")} className="inline-flex items-center gap-1.5 font-bold text-teal-deep hover:text-turq-600">
                 Explore Treatments <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
               <span className="text-sm text-muted2">Same-day appointments subject to availability · Clear treatment guidance</span>
             </div>
 
