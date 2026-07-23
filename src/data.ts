@@ -9,19 +9,19 @@ export const DOCTOR_PROFILE: Doctor = {
     "Ex Deputy Medical Commissioner",
     "Ex Senior Medical Officer (SMO)",
     "RCT Specialist (MDS)",
-    "FDILB 2024 Faridkot Rank #1 — Awarded Dental Professional",
+    "FDILB 2024 — Recognised Dental Professional, Faridkot District",
     "AIC Medal Ceremony — Recognised Healthcare Excellence"
   ],
   experienceHighlights: [
     "Over 35+ years of clinical and administrative healthcare excellence",
     "Former highest-ranking state medical administrator (Deputy Director)",
     "Kot Kapura’s only fully-digital multispeciality dental hospital",
-    "FDILB February 2024 Edition: Faridkot District Rank No. 1",
+    "FDILB February 2024 Edition: Recognised in Faridkot District",
     "Leading pioneer in advanced Single-Visit Root Canal Treatments (RCT)",
     "Renowned for ethical practice, gentle care, and patient-first diagnostics"
   ],
-  aboutText: "Dr. Dhir’s Dental Care Multispeciality Hospital is Kot Kapura’s fully-digital dental clinic, providing complete dental care and treatments for all — Smiles Guaranteed. Led by Dr. Kuldip Dhir, MDS, former Deputy Director and FDILB 2024 Faridkot Rank #1 recipient, our hospital combines 35+ years of clinical mastery with state-of-the-art digital dentistry.",
-  missionStatement: "To provide trusted, ethical, and fully-digital dental care for patients of all ages — because every patient deserves a guaranteed smile."
+  aboutText: "Dr. Dhir’s Dental Care Multispeciality Hospital is Kot Kapura’s fully-digital dental clinic, providing complete dental care and treatments for patients of all ages. Led by Dr. Kuldip Dhir, MDS, our hospital combines extensive clinical experience with modern, digitally supported dentistry.",
+  missionStatement: "To provide trusted, ethical and digitally supported dental care for patients of all ages — because every patient deserves a healthy, confident smile."
 };
 
 export const TRUST_BADGES: TrustBadge[] = [
@@ -51,8 +51,8 @@ export const TRUST_BADGES: TrustBadge[] = [
   },
   {
     id: "badge-5",
-    title: "Faridkot Rank #1",
-    subtitle: "FDILB 2024 Award",
+    title: "FDILB 2024",
+    subtitle: "Recognised · Faridkot",
     iconName: "ShieldCheck",
   }
 ];
@@ -61,19 +61,19 @@ export const SERVICES: Service[] = [
   {
     id: "implants",
     name: "Dental Implants",
-    description: "Permanent, natural-looking tooth replacement using titanium implants fused to the jawbone — the gold standard for missing teeth.",
+    description: "Natural-looking tooth replacement using titanium implants fused to the jawbone — a stable, long-term option for missing teeth.",
     iconName: "Zap",
     details: {
       meaning: "A dental implant is a small titanium screw surgically placed into the jawbone to act as an artificial tooth root. A custom crown is then fixed on top, creating a permanent, fully functional replacement tooth.",
       whenNeeded: "When one or more teeth are missing due to decay, trauma, or extraction, and you want a permanent, stable solution that looks and functions exactly like a natural tooth.",
       procedure: "Dr. Dhir evaluates jawbone density with digital X-rays. The titanium implant is placed under local anaesthesia. After osseointegration (3–4 months), a precision-milled Zirconia crown is permanently fixed on the implant.",
-      importance: "Implants prevent bone loss, maintain facial structure, restore full chewing ability, and last a lifetime with proper care — unlike dentures or bridges."
+      importance: "Implants help prevent bone loss, maintain facial structure, and restore chewing ability — and can last many years with proper care, unlike dentures or bridges."
     }
   },
   {
     id: "rct",
     name: "Root Canal Treatment (RCT)",
-    description: "Pain-free, advanced single-visit therapy to save decayed or infected teeth, performed by our resident MDS specialist.",
+    description: "Comfort-focused treatment to save decayed or infected teeth, performed by our resident MDS specialist — often in one or more visits depending on the case.",
     iconName: "FlameKindling", // Custom representative icon
     details: {
       meaning: "A root canal treatment (RCT) is a dental procedure designed to remove infection from the center of a tooth (the root canal system), clean it thoroughly, and then seal it to prevent future bacterial invasion.",
@@ -102,7 +102,7 @@ export const SERVICES: Service[] = [
     details: {
       meaning: "Professional dental scaling (cleaning) is the safe mechanical removal of hard tartar deposits and soft bacterial plaque, followed by abrasive cup-polishing to smooth the enamel surfaces.",
       whenNeeded: "Crucial twice a year to reverse early gingivitis, remove tea/coffee/tobacco staining, and eliminate bad breath (halitosis).",
-      procedure: "Using pain-free ultrasonic micro-vibrations, we wash away hard calcium build-ups from behind and between teeth. A gentle polishing paste is then applied for a glassy, clean sheen.",
+      procedure: "Using gentle ultrasonic micro-vibrations, we wash away hard calcium build-ups from behind and between teeth. A gentle polishing paste is then applied for a smooth, clean finish.",
       importance: "Prevents gum recession, bleeding, and bone loss. Professional scaling is a cornerstone of systemic wellness, linked to cardiovascular and diabetic health."
     }
   },
@@ -112,7 +112,7 @@ export const SERVICES: Service[] = [
     description: "Surgical and simple extraction of severely damaged teeth or impacted wisdom teeth, carried out with utmost care.",
     iconName: "Scissors",
     details: {
-      meaning: "The gentle, pain-free removal of a tooth from its socket in the bone, done under localized anesthesia.",
+      meaning: "The gentle, comfort-focused removal of a tooth from its socket in the bone, done under local anaesthesia.",
       whenNeeded: "Indicated for deep irreparable decay, severe trauma fracture, loose teeth from advanced gum disease, or wisdom teeth that are impacted and causing painful swelling.",
       procedure: "We apply deep local numbing. Using precision instruments, the tooth is atraumatically released. We place sterile collagen packs and provide exhaustive, warm post-care guidance.",
       importance: "Relieves chronic localized pain, stops systemic spread of dental abscesses, and prepares the space for custom bridges or dental implants."
@@ -145,7 +145,7 @@ export const SERVICES: Service[] = [
   {
     id: "smile",
     name: "Smile Designing (Veneers)",
-    description: "Esthetic smile makeovers combining porcelain veneers, cosmetic bonding, and contouring for the perfect symmetric smile.",
+    description: "Aesthetic smile makeovers combining porcelain veneers, cosmetic bonding, and contouring for a balanced, natural-looking smile.",
     iconName: "Heart",
     details: {
       meaning: "A comprehensive aesthetic dental plan using custom porcelain veneers, laminates, or cosmetic bonding to correct tooth shapes, sizes, and spacing.",
@@ -157,7 +157,7 @@ export const SERVICES: Service[] = [
   {
     id: "whitening",
     name: "Teeth Whitening",
-    description: "Advanced chairside and home whitening systems to remove deep discoloration and dramatically brighten your teeth safely.",
+    description: "Professionally supervised chairside and home whitening to reduce staining and improve your tooth shade safely.",
     iconName: "Sun",
     details: {
       meaning: "A cosmetic bleaching process using active hydrogen peroxide gels activated by specialized dental lights to break down deep organic stains in the enamel.",
@@ -169,7 +169,7 @@ export const SERVICES: Service[] = [
   {
     id: "gumcare",
     name: "Gum Care & Periodontics",
-    description: "Deep scaling, root planing, and therapeutic treatments to arrest bleeding gums, gingivitis, and bone loss.",
+    description: "Deep scaling, root planing, and therapeutic care to manage bleeding gums and gum disease, and reduce further progression.",
     iconName: "TrendingUp",
     details: {
       meaning: "Therapeutic clinical procedures focusing on restoring health to the supporting structures of the teeth, primarily the gums and alveolar bone.",
