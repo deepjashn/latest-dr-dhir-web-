@@ -5,6 +5,7 @@ import { HomePage } from "./pages/HomePage";
 import { TreatmentsPage } from "./pages/TreatmentsPage";
 import { TreatmentDetailPage } from "./pages/TreatmentDetailPage";
 import { DentistPage } from "./pages/DentistPage";
+import { SmartCheckPage } from "./pages/SmartCheckPage";
 import { ContactPage } from "./pages/ContactPage";
 import { LegalPage } from "./pages/LegalPage";
 import { StubPage } from "./pages/StubPage";
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/treatments" element={<TreatmentsPage />} />
             <Route path="/treatments/:slug" element={<TreatmentDetailPage />} />
             <Route path="/dentist" element={<DentistPage />} />
+            <Route path="/smart-dental-check" element={<SmartCheckPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<LegalPage kind="privacy" />} />
             <Route path="/terms" element={<LegalPage kind="terms" />} />

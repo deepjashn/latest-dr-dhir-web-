@@ -8,6 +8,7 @@ import { Button } from "../components/ui/Bits";
 import { CLINIC, waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { treatmentImage } from "../content/images";
 import { StubPage } from "./StubPage";
 
 const DETAIL_BLOCKS = [
@@ -35,17 +36,24 @@ export const TreatmentDetailPage: React.FC = () => {
     <>
       {/* Header band */}
       <section className="bg-mist border-b border-hairline">
-        <div className="max-w-5xl mx-auto px-6 py-14 lg:py-16">
-          <Link to="/treatments" className="inline-flex items-center gap-1.5 text-sm font-semibold text-body hover:text-brand-950 mb-6">
+        <div className="max-w-6xl mx-auto px-6 py-12 lg:py-16">
+          <Link to="/treatments" className="inline-flex items-center gap-1.5 text-sm font-semibold text-body hover:text-brand-950 mb-8">
             <ArrowLeft className="w-4 h-4" /> All Treatments
           </Link>
-          <div className="flex items-start gap-5">
-            <span className="w-16 h-16 shrink-0 rounded-2xl bg-white border border-hairline text-brand-600 grid place-items-center shadow-sm">
-              <DynamicIcon name={service.iconName} className="w-8 h-8" />
-            </span>
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-center">
             <div>
+              <span className="w-14 h-14 rounded-2xl bg-white border border-hairline text-brand-600 grid place-items-center shadow-sm mb-5">
+                <DynamicIcon name={service.iconName} className="w-7 h-7" />
+              </span>
               <h1 className="font-display font-bold tracking-tight text-[clamp(1.9rem,4vw,2.8rem)] text-ink text-balance">{service.name}</h1>
-              <p className="text-[17px] text-body mt-3 max-w-2xl">{service.description}</p>
+              <p className="text-[17px] text-body mt-3">{service.description}</p>
+              <div className="flex flex-wrap gap-3 mt-6">
+                <Button onClick={() => open(`treatment_hero_${service.id}`)} className="!py-3">Book a Consultation</Button>
+                <Button variant="wa" href={waLink(`Hello ${CLINIC.shortName}, I'd like to know more about ${service.name}.`)} className="!py-3">WhatsApp Us</Button>
+              </div>
+            </div>
+            <div className="rounded-[24px] overflow-hidden shadow-xl aspect-[4/3]">
+              <img src={treatmentImage(service.id)} alt={service.name} className="w-full h-full object-cover" width={1400} height={1050} />
             </div>
           </div>
         </div>

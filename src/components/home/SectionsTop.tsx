@@ -6,6 +6,7 @@ import { SERVICES } from "../../data";
 import { DynamicIcon } from "../DynamicIcon";
 import { SectionHead, fadeUp, TButton } from "./ui";
 import { trackEvent } from "../../content/site";
+import { treatmentImage } from "../../content/images";
 
 /* ---------- TRUST STRIP ---------- */
 const PILLARS = [
@@ -64,13 +65,8 @@ export const ConcernCards: React.FC = () => (
   </section>
 );
 
-/* ---------- FEATURED TREATMENTS (icon-led premium cards) ---------- */
+/* ---------- FEATURED TREATMENTS (photo-led premium cards) ---------- */
 const FEATURED = ["rct", "implants", "crowns", "smile", "gumcare", "pediatric"];
-const GRADS = [
-  "linear-gradient(135deg,#DFF7F4,#a5e6df)", "linear-gradient(135deg,#e7f0ef,#c9e2dd)",
-  "linear-gradient(135deg,#e3eef2,#c4dbe4)", "linear-gradient(135deg,#eef2f1,#d7e6e2)",
-  "linear-gradient(135deg,#e0f2ef,#b9e2da)", "linear-gradient(135deg,#eaf3f1,#cfe6e0)",
-];
 
 export const FeaturedTreatments: React.FC = () => {
   const items = FEATURED.map((id) => SERVICES.find((s) => s.id === id)!).filter(Boolean);
@@ -80,11 +76,12 @@ export const FeaturedTreatments: React.FC = () => {
         <SectionHead center eyebrow="Comprehensive Dental Care" title="Specialised Treatments, Clearly Explained"
           intro="Each treatment is explained in plain language — what it's for, and how it helps — so you always know your options." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((s, i) => (
+          {items.map((s) => (
             <motion.div key={s.id} {...fadeUp}>
               <Link to={`/treatments/${s.id}`} onClick={() => trackEvent("treatment_visit", s.id)} className="group flex flex-col h-full bg-white border border-neutral-soft rounded-[24px] overflow-hidden transition-all hover:-translate-y-1.5 hover:shadow-2xl">
-                <div className="relative h-32 grid place-items-center" style={{ background: GRADS[i % GRADS.length] }}>
-                  <span className="w-16 h-16 rounded-2xl bg-white/80 backdrop-blur grid place-items-center text-turq-700 shadow-sm"><DynamicIcon name={s.iconName} className="w-8 h-8" /></span>
+                <div className="relative h-44 overflow-hidden">
+                  <img src={treatmentImage(s.id)} alt={s.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <span className="absolute bottom-3 left-3 w-12 h-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-turq-700 shadow"><DynamicIcon name={s.iconName} className="w-6 h-6" /></span>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-display font-bold text-[19px] text-teal-deep mb-2">{s.name}</h3>

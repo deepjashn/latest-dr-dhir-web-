@@ -15,12 +15,13 @@ export const useAppointment = () => useContext(AppointmentContext);
 interface FormState {
   name: string;
   phone: string;
+  patientType: "" | "new" | "existing";
   concern: string;
   date: string;
   time: string;
   consent: boolean;
 }
-const EMPTY: FormState = { name: "", phone: "", concern: "", date: "", time: "", consent: false };
+const EMPTY: FormState = { patientType: "", name: "", phone: "", concern: "", date: "", time: "", consent: false };
 
 const CONCERNS = [
   "Tooth pain",
@@ -62,6 +63,7 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   const validate = (): boolean => {
     const e: Partial<Record<keyof FormState, boolean>> = {};
+    if (!form.patientType) e.patientType = true;
     if (!form.name.trim()) e.name = true;
     if (form.phone.replace(/\D/g, "").length < 7) e.phone = true;
     if (!form.concern) e.concern = true;
@@ -73,8 +75,10 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const submit = (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
+    const patientLabel = form.patientType === "existing" ? "Existing patient" : "New patient";
     const msg =
       `Hello ${CLINIC.shortName}, I'd like to book an appointment.\n\n` +
+      `Patient: ${patientLabel}\n` +
       `Name: ${form.name}\nPhone: ${form.phone}\nConcern: ${form.concern}\n` +
       `Preferred date: ${form.date || "Any"}\nPreferred time: ${form.time || "Any"}`;
     trackEvent("form_submit_success", "appointment_modal");
@@ -138,6 +142,29 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
                     </div>
                   ) : (
                     <form onSubmit={submit} noValidate className="space-y-4">
+                      <Field label="Are you a new or returning patient?" required error={errors.patientType} errorMsg="Please select one">
+                        <div className="grid grid-cols-2 gap-3">
+                          {([["new", "New Patient"], ["existing", "Existing Patient"]] as const).map(([val, lbl]) => {
+                            const active = form.patientType === val;
+                            return (
+                              <button
+                                key={val}
+                                type="button"
+                                onClick={() => set("patientType", val)}
+                                aria-pressed={active}
+                                className={`min-h-[48px] px-4 rounded-xl border-2 text-[15px] font-bold transition-all inline-flex items-center justify-center gap-2 ${
+                                  active
+                                    ? "border-brand-950 bg-brand-950 text-white shadow-md"
+                                    : "border-hairline bg-white text-body hover:border-brand-400 hover:text-brand-950"
+                                }`}
+                              >
+                                {active && <Check className="w-4 h-4" strokeWidth={3} />}
+                                {lbl}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </Field>
                       <Field label="Full Name" required error={errors.name} errorMsg="Please enter your name">
                         <input type="text" value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="e.g. Gurpreet Singh" className={inputCls(errors.name)} />
                       </Field>

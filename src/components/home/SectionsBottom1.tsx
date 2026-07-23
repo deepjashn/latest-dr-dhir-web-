@@ -4,6 +4,7 @@ import { ScanLine, Microscope, ShieldCheck, Sparkles, Boxes, Stethoscope, ArrowR
 import { SectionHead, Eyebrow, fadeUp, TButton } from "./ui";
 import { trackEvent } from "../../content/site";
 import clinicExterior from "../../assets/images/clinic-exterior.jpg";
+import { IMG } from "../../content/images";
 
 /* ---------- TECHNOLOGY & SAFETY ---------- */
 const TECH = [
@@ -23,7 +24,7 @@ export const TechSafety: React.FC = () => (
       <div className="grid lg:grid-cols-[1fr_1.15fr] gap-8 items-start">
         {/* feature image */}
         <motion.div {...fadeUp} className="relative rounded-[28px] overflow-hidden shadow-xl lg:sticky lg:top-24 aspect-[4/5] lg:aspect-auto lg:h-[520px]">
-          <img src={clinicExterior} alt="Dr. Dhir's Dental Care clinic building, Kotkapura" className="w-full h-full object-cover" loading="lazy" />
+          <img src={IMG.operatory} alt="Modern dental operatory with digital equipment" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/85 via-teal-deep/10 to-transparent" />
           <div className="absolute bottom-0 p-7 text-white">
             <b className="block font-display text-xl mb-1">All Specialities Under One Roof</b>

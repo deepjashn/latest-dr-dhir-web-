@@ -36,7 +36,7 @@ export function waLink(message?: string): string {
 export const NAV: { label: string; to: string }[] = [
   { label: "Treatments", to: "/treatments" },
   { label: "Meet Dr. Dhir", to: "/dentist" },
-  { label: "Smart Dental Check", to: "/#smart-check" },
+  { label: "Smart Dental Check", to: "/smart-dental-check" },
   { label: "Contact", to: "/contact" },
 ];
 

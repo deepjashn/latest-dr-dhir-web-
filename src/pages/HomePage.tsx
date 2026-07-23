@@ -1,13 +1,14 @@
 import React from "react";
 import { Hero } from "../components/home/Hero";
 import { TrustStrip, ConcernCards, FeaturedTreatments } from "../components/home/SectionsTop";
-import { MeetDoctor, SmartCheck } from "../components/home/SectionsMid";
+import { MeetDoctor } from "../components/home/SectionsMid";
+import { WhyChoose } from "../components/home/WhyChoose";
 import { TechSafety } from "../components/home/SectionsBottom1";
 import { AppointmentSteps, FAQ, LocationContact, FinalCTA } from "../components/home/SectionsBottom2";
 
 // Premium teal homepage. Portrait appears ONLY in <MeetDoctor />.
-// Concern entry lives in <ConcernCards /> (editorial) and the interactive
-// <SmartCheck /> assessment — the redundant hero concern-chip panel was removed.
+// The full Smart Dental Check assessment lives on its own page (/smart-dental-check);
+// the homepage promotes it via the <WhyChoose /> section CTA.
 export const HomePage: React.FC = () => (
   <>
     <Hero />
@@ -15,7 +16,7 @@ export const HomePage: React.FC = () => (
     <ConcernCards />
     <FeaturedTreatments />
     <MeetDoctor />
-    <SmartCheck preset={null} />
+    <WhyChoose />
     <TechSafety />
     <AppointmentSteps />
     <FAQ />

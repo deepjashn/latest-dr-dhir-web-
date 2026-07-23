@@ -8,6 +8,7 @@ import { Button, Eyebrow } from "../components/ui/Bits";
 import { CLINIC, waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { treatmentImage } from "../content/images";
 
 const fadeUp = {
   initial: { y: 16 },
@@ -16,17 +17,6 @@ const fadeUp = {
   transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const },
 };
 
-// Soft teal-family gradient per card so the grid doesn't read as identical tiles.
-const GRADS = [
-  "linear-gradient(135deg,#DFF7F4,#a5e6df)",
-  "linear-gradient(135deg,#e7f2f0,#c9e6df)",
-  "linear-gradient(135deg,#e0f2ef,#b9e2da)",
-  "linear-gradient(135deg,#eaf3f1,#cfe6e0)",
-  "linear-gradient(135deg,#dff3f0,#aee0d6)",
-  "linear-gradient(135deg,#eef4f2,#d3e8e2)",
-  "linear-gradient(135deg,#e3f1ee,#c2e4db)",
-  "linear-gradient(135deg,#e8f4f2,#c7e7e0)",
-];
 
 export const TreatmentsPage: React.FC = () => {
   const { open } = useAppointment();
@@ -60,15 +50,16 @@ export const TreatmentsPage: React.FC = () => {
       <section className="py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((s, i) => (
+            {SERVICES.map((s) => (
               <motion.div key={s.id} {...fadeUp}>
                 <Link
                   to={`/treatments/${s.id}`}
                   className="group flex flex-col h-full bg-white border border-hairline rounded-2xl overflow-hidden transition-all hover:-translate-y-1.5 hover:shadow-xl hover:border-transparent"
                 >
-                  <div className="relative aspect-[16/9] grid place-items-center" style={{ background: GRADS[i % GRADS.length] }}>
-                    <span className="w-14 h-14 rounded-2xl bg-white/85 backdrop-blur text-brand-600 grid place-items-center shadow-sm">
-                      <DynamicIcon name={s.iconName} className="w-7 h-7" />
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <img src={treatmentImage(s.id)} alt={s.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    <span className="absolute bottom-3 left-3 w-11 h-11 rounded-xl bg-white/90 backdrop-blur text-brand-600 grid place-items-center shadow">
+                      <DynamicIcon name={s.iconName} className="w-6 h-6" />
                     </span>
                   </div>
                   <div className="p-6 flex flex-col flex-1">

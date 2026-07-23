@@ -13,7 +13,7 @@ const TREATMENT_LINKS = [
 ];
 const QUICK_LINKS = [
   { label: "Meet Dr. Dhir", to: "/dentist" },
-  { label: "Smart Dental Check", to: "/#smart-check" },
+  { label: "Smart Dental Check", to: "/smart-dental-check" },
   { label: "All Treatments", to: "/treatments" },
   { label: "Contact", to: "/contact" },
 ];
