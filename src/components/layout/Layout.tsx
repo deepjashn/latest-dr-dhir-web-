@@ -4,6 +4,7 @@ import { UtilityBar } from "./UtilityBar";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { MobileActionBar } from "./MobileActionBar";
+import { WelcomeModal } from "./WelcomeModal";
 import { Chatbot } from "../Chatbot";
 
 // Scrolls to top on route change, or to the hash target when present.
@@ -39,5 +40,7 @@ export const Layout: React.FC = () => (
     <Chatbot />
     {/* Spacer so mobile action bar never covers footer content */}
     <div className="sm:hidden h-16" aria-hidden="true" />
+    {/* One-time welcome on a visitor's first view */}
+    <WelcomeModal />
   </div>
 );

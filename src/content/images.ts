@@ -1,5 +1,6 @@
 // Central image map. Stock dental imagery used as tasteful, illustrative
 // placeholders until the clinic supplies its own photographs.
+import drDhirPatient from "../assets/images/dr-dhir-patient.jpg";
 import patientCare from "../assets/images/stock/patient-care.jpg";
 import clinicalPlanning from "../assets/images/stock/clinical-planning.jpg";
 import operatory from "../assets/images/stock/operatory.jpg";
@@ -13,6 +14,7 @@ import whitening from "../assets/images/stock/whitening.jpg";
 import pediatric from "../assets/images/stock/pediatric.jpg";
 
 export const IMG = {
+  drDhirPatient,
   patientCare,
   clinicalPlanning,
   operatory,

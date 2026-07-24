@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
           {/* RIGHT — real clinic environment (NOT the portrait) */}
           <motion.div initial={{ scale: 0.98 }} animate={{ scale: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="relative">
             <div className="rounded-[32px] overflow-hidden shadow-[0_40px_80px_-30px_rgba(6,59,59,0.45)] aspect-[4/5]">
-              <img src={IMG.patientCare} alt="Gentle, comfort-focused dental care at Dr. Dhir's Dental Care, Kotkapura" className="w-full h-full object-cover" width={1400} height={1750} fetchPriority="high" />
+              <img src={IMG.drDhirPatient} alt="Dr. Kuldip Dhir examining a patient at Dr. Dhir's Dental Care, Kotkapura" className="w-full h-full object-cover object-top" width={1100} height={1717} fetchPriority="high" />
             </div>
             {/* small supporting image — digital treatment planning */}
             <div className="hidden sm:block absolute -bottom-8 -left-6 w-44 rounded-2xl overflow-hidden shadow-xl border-4 border-cream">
