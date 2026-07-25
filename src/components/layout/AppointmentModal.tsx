@@ -34,6 +34,16 @@ const CONCERNS = [
   "Other",
 ];
 
+// Returning patients get reason options oriented around their existing record.
+const REASONS = [
+  "Follow-up on ongoing treatment",
+  "Continue a planned treatment",
+  "New concern or problem",
+  "Routine review / check-up",
+  "Issue after a recent treatment",
+  "Other",
+];
+
 export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [form, setForm] = useState<FormState>(EMPTY);
@@ -75,11 +85,13 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const submit = (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
-    const patientLabel = form.patientType === "existing" ? "Existing patient" : "New patient";
+    const existing = form.patientType === "existing";
     const msg =
       `Hello ${CLINIC.shortName}, I'd like to book an appointment.\n\n` +
-      `Patient: ${patientLabel}\n` +
-      `Name: ${form.name}\nPhone: ${form.phone}\nConcern: ${form.concern}\n` +
+      `Patient: ${existing ? "Existing patient" : "New patient"}\n` +
+      `Name: ${form.name}\n` +
+      `${existing ? "Registered mobile" : "Phone"}: ${form.phone}\n` +
+      `${existing ? "Reason" : "Concern"}: ${form.concern}\n` +
       `Preferred date: ${form.date || "Any"}\nPreferred time: ${form.time || "Any"}`;
     trackEvent("form_submit_success", "appointment_modal");
     window.open(waLink(msg), "_blank", "noopener");
@@ -165,17 +177,22 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
                           })}
                         </div>
                       </Field>
+                      {form.patientType === "existing" && (
+                        <p className="-mt-1 flex items-start gap-2 text-[13px] text-brand-700 bg-brand-50 border border-brand-100 rounded-xl px-3.5 py-2.5">
+                          <Check className="w-4 h-4 shrink-0 mt-0.5" /> Welcome back — enter the mobile number your record is under and we'll pull up your history.
+                        </p>
+                      )}
                       <Field label="Full Name" required error={errors.name} errorMsg="Please enter your name">
                         <input type="text" value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="e.g. Gurpreet Singh" className={inputCls(errors.name)} />
                       </Field>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <Field label="Phone Number" required error={errors.phone} errorMsg="Enter a valid phone number">
-                          <input type="tel" value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="e.g. 70094 88220" className={inputCls(errors.phone)} />
+                        <Field label={form.patientType === "existing" ? "Registered Mobile Number" : "Phone Number"} required error={errors.phone} errorMsg="Enter a valid phone number">
+                          <input type="tel" value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder={form.patientType === "existing" ? "Number your record is under" : "e.g. 70094 88220"} className={inputCls(errors.phone)} />
                         </Field>
-                        <Field label="Concern" required error={errors.concern} errorMsg="Choose a concern">
+                        <Field label={form.patientType === "existing" ? "Reason for Visit" : "Concern"} required error={errors.concern} errorMsg={form.patientType === "existing" ? "Choose a reason" : "Choose a concern"}>
                           <select value={form.concern} onChange={(e) => set("concern", e.target.value)} className={inputCls(errors.concern)}>
                             <option value="">Select</option>
-                            {CONCERNS.map((c) => <option key={c}>{c}</option>)}
+                            {(form.patientType === "existing" ? REASONS : CONCERNS).map((c) => <option key={c}>{c}</option>)}
                           </select>
                         </Field>
                         <Field label="Preferred Date">
