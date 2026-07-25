@@ -4,6 +4,7 @@ import { Eyebrow, Button } from "../components/ui/Bits";
 import { CLINIC, waLink, trackEvent } from "../content/site";
 import { useAppointment } from "../components/layout/AppointmentModal";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { saveEnquiry } from "../lib/supabase";
 import clinicExterior from "../assets/images/clinic-exterior.jpg";
 
 export const ContactPage: React.FC = () => {
@@ -25,6 +26,7 @@ export const ContactPage: React.FC = () => {
     setErrors(err);
     if (Object.keys(err).length) return;
     const msg = `Hello ${CLINIC.shortName},\n\nName: ${form.name}\nPhone: ${form.phone}\n\n${form.message}`;
+    void saveEnquiry({ name: form.name, phone: form.phone, message: form.message });
     trackEvent("form_submit_success", "contact_page");
     window.open(waLink(msg), "_blank", "noopener");
     setSent(true);

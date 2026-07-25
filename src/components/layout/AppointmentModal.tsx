@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Calendar, Check, Phone } from "lucide-react";
 import { CLINIC, waLink, trackEvent } from "../../content/site";
+import { saveAppointment } from "../../lib/supabase";
 
 // ---- Context so any component can open the booking modal ----
 interface ApptCtx {
@@ -93,6 +94,16 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
       `${existing ? "Registered mobile" : "Phone"}: ${form.phone}\n` +
       `${existing ? "Reason" : "Concern"}: ${form.concern}\n` +
       `Preferred date: ${form.date || "Any"}\nPreferred time: ${form.time || "Any"}`;
+    // Save to Supabase (best-effort — never blocks the WhatsApp handoff)
+    void saveAppointment({
+      patient_type: (form.patientType || "new") as "new" | "existing",
+      name: form.name,
+      phone: form.phone,
+      concern: form.concern,
+      preferred_date: form.date || undefined,
+      preferred_time: form.time || undefined,
+      source: "appointment_modal",
+    });
     trackEvent("form_submit_success", "appointment_modal");
     window.open(waLink(msg), "_blank", "noopener");
     setSuccess(true);
