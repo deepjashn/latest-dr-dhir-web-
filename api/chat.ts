@@ -69,6 +69,7 @@ export default async function handler(req: any, res: any) {
     res.status(200).json({
       text: "Thank you for your message. I had a brief connection issue — for anything urgent please call the clinic on 070094 88220, or send us a message on WhatsApp and our team will assist you.",
       error: "API_ERROR",
+      debug: String(error?.message || error).slice(0, 300),
     });
   }
 }
