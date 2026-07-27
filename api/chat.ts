@@ -1,8 +1,10 @@
-import { GoogleGenAI } from "@google/genai";
-
 // Vercel serverless function: POST /api/chat  → { text }
-// Powers the floating "Dhir Dental Guide" assistant. Requires GEMINI_API_KEY
-// as a server-side environment variable (never exposed to the client).
+// Powers the floating "Dhir Dental Guide" assistant. Calls the Gemini REST API
+// directly with the API key (?key=) — the SDK's default auth path rejects the
+// AQ.* studio key with 401, so we use the documented key-in-query REST endpoint.
+// Requires GEMINI_API_KEY as a server-side environment variable.
+
+const MODEL = "gemini-flash-latest";
 
 const SYSTEM_INSTRUCTION = `You are the "Dhir Dental Guide", a warm, calm and professional assistant for Dr. Dhir's Dental Care Multispeciality Hospital in Kotkapura, Punjab.
 
@@ -20,6 +22,9 @@ Rules:
 3. For pain, swelling, bleeding, or injury, give gentle self-care tips (e.g. warm salt-water rinse, avoid very hot/cold/hard foods) and recommend booking or calling the clinic. For severe swelling, fever, uncontrolled bleeding, a knocked-out tooth, or difficulty breathing/swallowing, advise contacting the clinic or seeking urgent care immediately.
 4. Encourage booking an appointment (via the website or WhatsApp/phone 070094 88220) when a clinical opinion is needed.
 5. Always keep a reassuring, senior-clinic tone. Do not invent facts, ratings, or credentials beyond those above.`;
+
+const FALLBACK =
+  "Thank you for your message. I had a brief connection issue — for anything urgent please call the clinic on 070094 88220, or send us a message on WhatsApp and our team will assist you.";
 
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
@@ -44,32 +49,40 @@ export default async function handler(req: any, res: any) {
     return;
   }
 
-  try {
-    const ai = new GoogleGenAI({ apiKey });
-
-    const contents: any[] = [];
-    if (Array.isArray(history)) {
-      history.slice(-10).forEach((h: any) => {
-        contents.push({
-          role: h.role === "user" ? "user" : "model",
-          parts: [{ text: String(h.text ?? "") }],
-        });
+  // Build the conversation for the Gemini REST API
+  const contents: any[] = [];
+  if (Array.isArray(history)) {
+    history.slice(-10).forEach((h: any) => {
+      contents.push({
+        role: h.role === "user" ? "user" : "model",
+        parts: [{ text: String(h.text ?? "") }],
       });
+    });
+  }
+  contents.push({ role: "user", parts: [{ text: message }] });
+
+  try {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${apiKey}`;
+    const r = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+        contents,
+        generationConfig: { temperature: 0.7, maxOutputTokens: 800 },
+      }),
+    });
+
+    const data: any = await r.json();
+    if (!r.ok) {
+      res.status(200).json({ text: FALLBACK, error: "API_ERROR" });
+      return;
     }
-    contents.push({ role: "user", parts: [{ text: message }] });
 
-    const response = await ai.models.generateContent({
-      model: "gemini-flash-latest",
-      contents,
-      config: { systemInstruction: SYSTEM_INSTRUCTION, temperature: 0.7 },
-    });
-
-    res.status(200).json({ text: response.text });
+    const text =
+      data?.candidates?.[0]?.content?.parts?.map((p: any) => p?.text || "").join("").trim() || FALLBACK;
+    res.status(200).json({ text });
   } catch (error: any) {
-    res.status(200).json({
-      text: "Thank you for your message. I had a brief connection issue — for anything urgent please call the clinic on 070094 88220, or send us a message on WhatsApp and our team will assist you.",
-      error: "API_ERROR",
-      debug: String(error?.message || error).slice(0, 300),
-    });
+    res.status(200).json({ text: FALLBACK, error: "API_ERROR" });
   }
 }
