@@ -75,7 +75,7 @@ export default async function handler(req: any, res: any) {
 
     const data: any = await r.json();
     if (!r.ok) {
-      res.status(200).json({ text: FALLBACK, error: "API_ERROR", debug: JSON.stringify(data?.error || data).slice(0, 120), keyhint: (apiKey || "").slice(0, 6) + "…" + (apiKey || "").slice(-4) });
+      res.status(200).json({ text: FALLBACK, error: "API_ERROR" });
       return;
     }
 
