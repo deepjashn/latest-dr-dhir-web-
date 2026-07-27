@@ -59,7 +59,7 @@ export default async function handler(req: any, res: any) {
     contents.push({ role: "user", parts: [{ text: message }] });
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-flash-latest",
       contents,
       config: { systemInstruction: SYSTEM_INSTRUCTION, temperature: 0.7 },
     });

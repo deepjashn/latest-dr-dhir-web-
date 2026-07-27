@@ -166,7 +166,7 @@ Guidelines for your replies:
     });
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-flash-latest",
       contents: formattedContents,
       config: {
         systemInstruction,
@@ -230,7 +230,7 @@ The response JSON must follow this TypeScript interface structure:
 }`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-flash-latest",
       contents: [
         {
           inlineData: {
