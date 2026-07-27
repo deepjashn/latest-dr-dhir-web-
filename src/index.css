@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Powder scale — aliased to the teal system (keeps the floating Chatbot on-brand) */
+  --color-powder-50: #DFF7F4;
+  --color-powder-100: #c9f0eb;
+  --color-powder-200: #a5e6df;
+  --color-powder-300: #6fd6cd;
+  --color-powder-400: #33c6bd;
+  --color-powder-500: #12B8B0;
+  --color-powder-600: #0f9c95;
+  --color-powder-700: #0c7d77;
+  --color-powder-800: #0a625e;
+  --color-powder-900: #084f4c;
+  --color-powder-950: #063B3B;
+
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+
+  /* ===== brand-x is ALIASED to the Pearl teal system for site-wide consistency =====
+     Inner pages and shared chrome use the brand and semantic tokens; the homepage uses
+     the teal tokens below. Both now resolve to the same teal palette so the whole site
+     shares one colour pattern. (Names kept unchanged to avoid touching every component.) */
+  --color-brand-50: #DFF7F4;
+  --color-brand-100: #c9f0eb;
+  --color-brand-200: #a5e6df;
+  --color-brand-300: #6fd6cd;
+  --color-brand-400: #33c6bd;
+  --color-brand-500: #12B8B0;  /* turquoise — links / icons */
+  --color-brand-600: #0f9c95;
+  --color-brand-700: #0c7d77;
+  --color-brand-800: #0a625e;
+  --color-brand-900: #084f4c;
+  --color-brand-950: #063B3B;  /* deep teal — headings / buttons / dark sections */
+
+  /* Semantic single-tone tokens (teal-aligned) */
+  --color-ink: #102A32;       /* headings */
+  --color-body: #60747A;      /* body text */
+  --color-hairline: #D9E7E4;  /* muted teal-tinted borders */
+  --color-mist: #F8FAF8;      /* warm off-white */
+  --color-wa: #1FAF62;        /* WhatsApp green (WhatsApp actions only) */
+  --color-wa-dark: #17994F;
+  --color-accent: #0f9c95;    /* premium teal accent */
+
+  /* ===== Pearl premium teal system (homepage redesign) ===== */
+  --color-teal-deep: #063B3B;   /* primary deep teal */
+  --color-navy-deep: #071F2B;   /* secondary dark navy */
+  --color-turq-50: #DFF7F4;     /* soft aqua */
+  --color-turq-100: #c9f0eb;
+  --color-turq-200: #a5e6df;
+  --color-turq-300: #6fd6cd;
+  --color-turq-400: #33c6bd;
+  --color-turq-500: #12B8B0;    /* premium turquoise */
+  --color-turq-600: #0f9c95;
+  --color-turq-700: #0c7d77;
+  --color-turq-800: #0a625e;
+  --color-cream: #F8FAF8;       /* warm off-white */
+  --color-neutral-soft: #EEF2F1;/* soft neutral */
+  --color-ink2: #102A32;        /* main text (teal system) */
+  --color-muted2: #60747A;      /* muted text (teal system) */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fcfcfc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4e2f0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5991ca;
+}
+
+/* Base style refinements */
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom premium utilities */
+.oversized-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.card-rounded {
+  border-radius: 2rem;
+}
+
+.section-rounded {
+  border-radius: 3rem;
+}
+
+.shadow-premium {
+  box-shadow: 
+    0 10px 25px -5px rgba(27, 42, 65, 0.04), 
+    0 8px 16px -6px rgba(27, 42, 65, 0.02),
+    0 1px 2px rgba(27, 42, 65, 0.01),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.shadow-premium-hover {
+  box-shadow: 
+    0 25px 45px -12px rgba(27, 42, 65, 0.16),
+    0 16px 28px -8px rgba(27, 42, 65, 0.10),
+    0 4px 10px -2px rgba(27, 42, 65, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.95) inset;
+}
+
